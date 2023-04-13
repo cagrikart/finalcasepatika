@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import myImage from "./ghost-star-wars-rebels.jpg";
+import ReactPaginate from 'react-paginate';
 
 const CardStarships = ({ starships }) => {
   console.log("card",starships)
@@ -22,7 +23,7 @@ const CardStarships = ({ starships }) => {
   const filteredStarships = starships.filter((starship) =>
     starship.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
+  
   return (
     <>
       <div style={{ marginBottom: "20px" }}>
@@ -32,32 +33,35 @@ const CardStarships = ({ starships }) => {
           onChange={handleSearch}
         />
       </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)"}}>
+
       {filteredStarships.map((starship) => (
-        <Card style={{marginTop:"50px", borderRadius:"20px", backgroundColor:"red", display:"inline-flex",marginRight:"100px"}}  sx={{ maxWidth: 345 }} key={starship.name}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="140"
-              image={myImage}
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {starship.name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <span style={{ fontWeight: "bolder" }}>Model</span> :{" "}
-                {starship.model}
-                <br />
-                <span style={{ fontWeight: "bolder" }}>
-                  Hyperdrive Rating
-                </span>{" "}
-                : {starship.hyperdrive_rating}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      ))}
+          <Card key={starship.name}  style={{margin: "20px",  display:"inline-flex", borderRadius:"20px", backgroundColor:"red"}}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                height="140"
+                image={myImage}
+                alt="green iguana"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {starship.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  <span style={{ fontWeight: "bolder" }}>Model</span> :{" "}
+                  {starship.model}
+                  <br />
+                  <span style={{ fontWeight: "bolder" }}>
+                    Hyperdrive Rating
+                  </span>{" "}
+                  : {starship.hyperdrive_rating}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        ))}
+        </div>
     </>
   );
 };

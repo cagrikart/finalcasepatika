@@ -16,9 +16,7 @@ const CardList = () => {
   }, []);
   return (
     <div>
-      {starships.map(() => (
-        <CardStarships  starships={starships} />
-      ))}
+      <CardStarships starships={starships} />
     </div>
   );
 };
