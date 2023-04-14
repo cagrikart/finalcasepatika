@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Card from "./CardStarships";
+
 import CardStarships from "./CardStarships";
+import titleImage from "./titleImage.png";
 
 const CardList = () => {
   const [starships, setStarships] = useState([]);
@@ -16,6 +17,9 @@ const CardList = () => {
   }, []);
   return (
     <div>
+      <div >
+        <img src={titleImage} alt="" width="300px" height="150px" />
+      </div>
       <CardStarships starships={starships} />
     </div>
   );

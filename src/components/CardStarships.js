@@ -7,48 +7,86 @@ import {
   Card,
   Button,
   TextField,
+  Modal,
 } from "@mui/material";
 import React, { useState } from "react";
 import myImage from "./ghost-star-wars-rebels.jpg";
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from "react-paginate";
+import CardModal from "./CardModal";
 
 const CardStarships = ({ starships }) => {
-  console.log("card",starships)
+  console.log("card", starships);
+
   const [searchTerm, setSearchTerm] = useState("");
+  const [show, setShow] = useState(false);
+  const [selectedStarship, setSelectedStarship] = useState(null);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredStarships = starships.filter((starship) =>
-    starship.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredStarships = starships.filter(
+    (starship) =>
+      starship.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      starship.model.toLowerCase().includes(searchTerm.toLocaleLowerCase())
   );
-  
+
+  const handleCardClick = (starship) => {
+    setSelectedStarship(starship);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedStarship(null);
+  };
+
   return (
     <>
       <div style={{ marginBottom: "20px" }}>
-        <TextField
-          label="Search by name"
+        <label style={{ color: "white", marginRight: "20px" }}>
+          Name/Model
+        </label>
+        <input
+          style={{
+            border: "2px solid white",
+            width: "200px",
+            height: "25px",
+            borderRadius: "20px",
+          }}
+          placeholder="Search by name"
           variant="outlined"
           onChange={handleSearch}
         />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)"}}>
-
-      {filteredStarships.map((starship) => (
-          <Card key={starship.name}  style={{margin: "20px",  display:"inline-flex", borderRadius:"20px", backgroundColor:"red"}}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image={myImage}
-                alt="green iguana"
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+        {filteredStarships.map((starship) => (
+          <Card
+            key={starship.name}
+            style={{
+              margin: "20px",
+              display: "inline-flex",
+              borderRadius: "20px",
+              backgroundColor: "#2c2e34",
+            }}
+          >
+            <CardActionArea
+              onClick={() => {
+                handleCardClick(starship);
+                setShow(true);
+              }}
+            >
+              <img
+                src={myImage}
+                height="200"
+                width="250"
+                style={{ float: "left", objectFit: "cover" }}
+                alt={starship.name}
+                srcset=""
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+              <CardContent style={{paddingTop:"10%"}}>
+                <Typography style={{color:"#F5F5F5"}} gutterBottom variant="h5" component="div">
                   {starship.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography   style={{color:"#C0C0C0"}}  variant="body2" color="text.secondary">
                   <span style={{ fontWeight: "bolder" }}>Model</span> :{" "}
                   {starship.model}
                   <br />
@@ -61,7 +99,14 @@ const CardStarships = ({ starships }) => {
             </CardActionArea>
           </Card>
         ))}
-        </div>
+        {selectedStarship && (
+          <CardModal
+            item={selectedStarship}
+            open={show}
+            onClose={handleCloseModal}
+          />
+        )}
+      </div>
     </>
   );
 };
