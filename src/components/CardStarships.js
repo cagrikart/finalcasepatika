@@ -54,7 +54,7 @@ const CardStarships = ({ starships }) => {
           onChange={handleSearch}
         />
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
         {filteredStarships.map((starship) => (
           <Card
             key={starship.name}
@@ -71,7 +71,7 @@ const CardStarships = ({ starships }) => {
                 src={myImage}
                 height="200"
                 width="250"
-                style={{ float: "left", objectFit: "cover" }}
+                style={{ float: "left", paddingL:"20px",borderRadius:"20px", objectFit: "cover" }}
                 alt={starship.name}
                 srcset=""
               />
