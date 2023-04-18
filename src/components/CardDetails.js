@@ -27,18 +27,17 @@ const CardDetails = () => {
     <>
       <Card
         style={{
-          margin: "20px",
-          display: "inline-flex",
           borderRadius: "20px",
-          backgroundColor: "#2c2e34",
+          backgroundImage:{myImage},
+          background:"none"
         }}
       >
-        <CardContent style={{ paddingTop: "10%" }}>
+        <CardContent>
           <img
             src={myImage}
             height="200"
             width="250"
-            style={{ float: "left", objectFit: "cover" }}
+            style={{ objectFit: "cover" ,  borderRadius: "20px",marginBottom:"10px"}}
             alt={name}
             srcset=""
           />
