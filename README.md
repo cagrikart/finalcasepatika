@@ -5,5 +5,6 @@ Benim için çok eğitici bir sürecin sonunda böyle bir case ile bir seviye da
 Case in Tasarımı ve Görselleri aşağıdadır.
 
 <img src="./src/1.png" alt="img"/>
-<img src="./src/2.png" alt="imgTwo"/>
+<img src="./src/1.png" alt="img"/>
+<img src="./src/ikinci.png" alt="imgTwo"/>
 
