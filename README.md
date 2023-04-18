@@ -4,4 +4,4 @@ Tasarımı Material Ui kullandım.
 Benim için çok eğitici bir sürecin sonunda böyle bir case ile bir seviye daha atladığımı düşünüyorum 
 Case in Tasarımı ve Görselleri aşağıdadır.
 
-<img src="https://imgur.com/a/N7tFvwv" width="auto">
+<img src="C:\Users\ckart\OneDrive\Masaüstü\1.png" width="auto">
