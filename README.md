@@ -12,4 +12,3 @@ Case in Tasarımı ve Görselleri aşağıdadır.
 >>>>>>> 2307aedf3c2fc7525e42411eebd47e8b94a1d31b
 <img src="C:\Users\ckart\OneDrive\Masaüstü\2.png" width="auto">
 =======
->>>>>>> 47218bb86dc6704ddae00748c939910bc21776e6
