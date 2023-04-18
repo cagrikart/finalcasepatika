@@ -5,7 +5,7 @@ Benim için çok eğitici bir sürecin sonunda böyle bir case ile bir seviye da
 Case in Tasarımı ve Görselleri aşağıdadır.
 
 <img src="./src/1.png"/>
-<img src="./src/2.png"/>
+<img src="./src/2.png" alt="img"/>
 
 <img src="C:\Users\ckart\OneDrive\Masaüstü\1.png" width="auto">
-<img src="C:\Users\ckart\OneDrive\Masaüstü\2.png" width="auto">
+<img src="C:\Users\ckart\OneDrive\Masaüstü\2.png" alt="img" width="auto">
