@@ -10,3 +10,4 @@ Case in Tasarımı ve Görselleri aşağıdadır.
 =======
 <img src="C:\Users\ckart\OneDrive\Masaüstü\1.png" width="auto">
 >>>>>>> 2307aedf3c2fc7525e42411eebd47e8b94a1d31b
+<img src="C:\Users\ckart\OneDrive\Masaüstü\2.png" width="auto">
