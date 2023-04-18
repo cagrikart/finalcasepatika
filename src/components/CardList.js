@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import CardStarships from "./CardStarships";
-import titleImage from "./titleImage.png";
+import titleImage from "../images/titleImage.png";
 
 const CardList = () => {
   const [starships, setStarships] = useState([]);

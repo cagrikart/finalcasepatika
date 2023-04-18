@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Card, CardContent, Typography } from "@mui/material";
-import myImage from "./ghost-star-wars-rebels.jpg";
+import myImage from "../images/ghost-star-wars-rebels.jpg";
 
 const CardDetails = () => {
   const navigate = useNavigate();

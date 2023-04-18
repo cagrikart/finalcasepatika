@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; //bunda vermiyor 
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import CardList from "./components/CardList";
 import CardDetails from "./components/CardDetails";

@@ -10,7 +10,7 @@ import {
   Modal,
 } from "@mui/material";
 import React, { useState } from "react";
-import myImage from "./ghost-star-wars-rebels.jpg";
+import myImage from "../images/ghost-star-wars-rebels.jpg";
 import { useNavigate } from "react-router-dom";
 import CardDetails from "./CardDetails";
 
