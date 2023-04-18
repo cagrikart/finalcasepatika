@@ -11,7 +11,6 @@ const CardModal = ({ item, open, onClose }) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          backgroundColor: "white",
           padding: "20px",
           borderRadius: "10px",
           background: "black",

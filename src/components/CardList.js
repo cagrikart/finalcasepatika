@@ -6,6 +6,7 @@ import titleImage from "./titleImage.png";
 
 const CardList = () => {
   const [starships, setStarships] = useState([]);
+  
   useEffect(() => {
     axios
       .get(`https://swapi.dev/api/starships/`)

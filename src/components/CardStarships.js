@@ -11,15 +11,13 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import myImage from "./ghost-star-wars-rebels.jpg";
-import ReactPaginate from "react-paginate";
-import CardModal from "./CardModal";
+import { useNavigate } from "react-router-dom";
+import CardDetails from "./CardDetails";
 
 const CardStarships = ({ starships }) => {
-  console.log("card", starships);
+  const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [show, setShow] = useState(false);
-  const [selectedStarship, setSelectedStarship] = useState(null);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -28,15 +26,14 @@ const CardStarships = ({ starships }) => {
   const filteredStarships = starships.filter(
     (starship) =>
       starship.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      starship.model.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      starship.model.toLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+      starship.hyperdrive_rating
+        .toLowerCase()
+        .includes(searchTerm.toLocaleLowerCase())
   );
 
-  const handleCardClick = (starship) => {
-    setSelectedStarship(starship);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedStarship(null);
+  const handleCardClick = (selectedStarship) => {
+    navigate("/carddetails", { state: { selectedStarship } });
   };
 
   return (
@@ -67,13 +64,9 @@ const CardStarships = ({ starships }) => {
               borderRadius: "20px",
               backgroundColor: "#2c2e34",
             }}
+            onClick={() => handleCardClick(starship)}
           >
-            <CardActionArea
-              onClick={() => {
-                handleCardClick(starship);
-                setShow(true);
-              }}
-            >
+            <CardActionArea>
               <img
                 src={myImage}
                 height="200"
@@ -82,11 +75,20 @@ const CardStarships = ({ starships }) => {
                 alt={starship.name}
                 srcset=""
               />
-              <CardContent style={{paddingTop:"10%"}}>
-                <Typography style={{color:"#F5F5F5"}} gutterBottom variant="h5" component="div">
+              <CardContent style={{ paddingTop: "10%" }}>
+                <Typography
+                  style={{ color: "#F5F5F5" }}
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                >
                   {starship.name}
                 </Typography>
-                <Typography   style={{color:"#C0C0C0"}}  variant="body2" color="text.secondary">
+                <Typography
+                  style={{ color: "#C0C0C0" }}
+                  variant="body2"
+                  color="text.secondary"
+                >
                   <span style={{ fontWeight: "bolder" }}>Model</span> :{" "}
                   {starship.model}
                   <br />
@@ -99,13 +101,6 @@ const CardStarships = ({ starships }) => {
             </CardActionArea>
           </Card>
         ))}
-        {selectedStarship && (
-          <CardModal
-            item={selectedStarship}
-            open={show}
-            onClose={handleCloseModal}
-          />
-        )}
       </div>
     </>
   );
