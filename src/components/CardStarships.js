@@ -1,18 +1,12 @@
 import {
   CardActionArea,
-  CardActions,
   CardContent,
-  CardMedia,
   Typography,
   Card,
-  Button,
-  TextField,
-  Modal,
 } from "@mui/material";
 import React, { useState } from "react";
 import myImage from "../images/ghost-star-wars-rebels.jpg";
 import { useNavigate } from "react-router-dom";
-import CardDetails from "./CardDetails";
 
 const CardStarships = ({ starships }) => {
   const navigate = useNavigate();
