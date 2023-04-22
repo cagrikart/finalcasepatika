@@ -1,3 +1,4 @@
+https://search-starwars-patikacase.netlify.app //linke tıklayarak uygulamaya ulaşabilirsiniz.
 Patika Fmss Practium Final Case Ödevidir. 
 Bu ödevde react , react-router-dom ve axios kullandım 
 Tasarımı Material Ui kullandım. 
